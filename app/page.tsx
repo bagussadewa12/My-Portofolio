@@ -231,7 +231,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="mt-2 sm:mt-4 lg:py-10 flex flex-col items-center sm:items-start text-center sm:text-left w-full max-w-4xl mx-auto">
+              <div className="mt-2 sm:mt-4 lg:py-10 flex flex-col items-center lg:items-start text-center lg:text-left w-full max-w-4xl mx-auto">
                 <SplitText
                   text="I'm Bagus Sadewa"
                   className="text-2xl sm:text-4xl lg:text-6xl font-semibold text-white"
@@ -243,7 +243,7 @@ export default function Home() {
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
                   rootMargin="-100px"
-                  textAlign="center"
+                  textAlign="left"
                 />
 
                 <SplitText
@@ -257,7 +257,7 @@ export default function Home() {
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
                   rootMargin="-100px"
-                  textAlign="center"
+                  textAlign="left"
                 />
 
                 <BlurText
@@ -265,7 +265,7 @@ export default function Home() {
                   delay={80}
                   animateBy="words"
                   direction="top"
-                  className="text-sm sm:text-md md:text-lg lg:text-xl ml-5 text-white mt-4 text-center sm:text-left"
+                  className="text-sm sm:text-md sm: ml-5 md:text-lg lg:text-xl text-white mt-4 text-center lg:text-left lg:ml-0"
                 />
 
                 <div className="mt-6">
@@ -276,7 +276,7 @@ export default function Home() {
                       showBorder={false}
                       className="text-sm md:text-base lg:text-lg text-shadow-md rounded-lg border px-4 md:px-6 py-2 md:py-3 border-[#27A2D3]"
                     >
-                      Contact Me
+                      Contact Us
                     </GradientText>
                   </a>
                 </div>
