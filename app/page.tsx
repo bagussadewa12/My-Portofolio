@@ -1,4 +1,4 @@
-import Lanyard from './components/Lanyard/Lanyard';
+// import Lanyard from './components/Lanyard/Lanyard';
 import RotatingText from './components/RotatingText/RotatingText';
 import SplitText from './components/SplitText/SplitText';
 import BlurText from './components/BlurText/BlurText';
@@ -7,6 +7,8 @@ import GradientText from './components/GradientText/GradientText';
 import { Timeline } from './components/Timeline/Timeline';
 import ScrollVelocity from './components/ScrollVelocity/ScrollVelocity';
 import Image from 'next/image';
+// import ProfileCard from './components/Profile/profilecard';
+import Lanyard from './components/Lanyard/Lanyard';
 
 export default function Home() {
   const data = [
@@ -229,7 +231,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="mt-2 sm:mt-4 lg:py-10 flex flex-col items-center lg:items-start">
+              <div className="mt-2 sm:mt-4 lg:py-10 flex flex-col items-start text-left w-full max-w-4xl mx-auto">
                 <SplitText
                   text="I'm Bagus Sadewa"
                   className="text-2xl sm:text-4xl lg:text-6xl font-semibold text-white"
@@ -241,12 +243,12 @@ export default function Home() {
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
                   rootMargin="-100px"
-                  textAlign="center"
+                  textAlign="left"
                 />
 
                 <SplitText
                   text="Frontend Developer"
-                  className="text-2xl sm:text-4xl lg:text-6xl font-semibold text-[#58A5DF]"
+                  className="text-2xl sm:text-4xl lg:text-6xl font-semibold text-[#58A5DF] mt-2"
                   delay={75}
                   duration={0.6}
                   ease="power3.out"
@@ -255,7 +257,7 @@ export default function Home() {
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
                   rootMargin="-100px"
-                  textAlign="center"
+                  textAlign="left"
                 />
 
                 <BlurText
@@ -263,10 +265,10 @@ export default function Home() {
                   delay={80}
                   animateBy="words"
                   direction="top"
-                  className="text-sm sm:text-md ml-4 md:text-lg lg:text-xl text-white mt-4  lg:text-right"
+                  className="text-sm sm:text-md md:text-lg lg:text-xl text-white mt-4 text-left"
                 />
 
-                <div className="mt-4 flex justify-center lg:justify-start">
+                <div className="mt-6">
                   <a href="https://wa.me/6281338057046?text=Halo,%20saya%20tertarik%20dengan%20booking%20lapangan" target="_blank" rel="noopener noreferrer">
                     <GradientText
                       colors={['#183CF2', '#2477DC', '#244267', '#4079ff', '#40ffaa']}
@@ -281,13 +283,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-
           <div className="hidden lg:block lg:col-span-6 h-full">
             <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
           </div>
         </div>
       </div>
-      <ScrollVelocity texts={['Web Developer', 'Frontend Developer']} className="custom-scroll-text text-white" />
+      <ScrollVelocity texts={['Web Developer', 'UI/UX Designer']} className="custom-scroll-text text-white" />
       <Timeline data={data} />
     </div>
   );

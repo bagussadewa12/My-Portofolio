@@ -1,25 +1,14 @@
-export {};
-
-// src/global.d.ts
-
-declare module '*.glb';
-declare module '*.png';
-
-declare module 'meshline' {
-  export const MeshLineGeometry: any;
-  export const MeshLineMaterial: any;
-}
+// global.d.ts
+import { Object3DNode } from '@react-three/fiber';
+import { MeshLineMaterial, MeshLineGeometry } from 'meshline';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      meshLineGeometry: any;
-      meshLineMaterial: any;
+      meshLineGeometry: Object3DNode<MeshLineGeometry, typeof MeshLineGeometry>;
+      meshLineMaterial: Object3DNode<MeshLineMaterial, typeof MeshLineMaterial>;
     }
   }
 }
 
--src / vite - env.d.ts;
-/// <reference types="vite/client" />
-declare module '*.glb';
-declare module '*.png';
+export {};

@@ -1,6 +1,6 @@
 'use client';
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from 'react';
-import { motion, AnimatePresence, Transition, type VariantLabels, type Target, type AnimationControls, type TargetAndTransition } from 'framer-motion';
+import { motion, AnimatePresence, Transition, type VariantLabels, type Target, type TargetAndTransition } from 'framer-motion';
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(' ');
@@ -17,7 +17,7 @@ export interface RotatingTextProps extends Omit<React.ComponentPropsWithoutRef<t
   texts: string[];
   transition?: Transition;
   initial?: boolean | Target | VariantLabels;
-  animate?: boolean | VariantLabels | AnimationControls | TargetAndTransition;
+  animate?: boolean | VariantLabels | TargetAndTransition;
   exit?: Target | VariantLabels;
   animatePresenceMode?: 'sync' | 'wait';
   animatePresenceInitial?: boolean;
