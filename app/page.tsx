@@ -16,7 +16,7 @@ export default function Home() {
       title: '2023',
       content: (
         <div>
-          <p className="mb-5 text-xs font-normal text-white md:text-sm dark:text-neutral-200 ">
+          <p className="mb-5 text-2xs font-normal text-white md:text-sm dark:text-neutral-200 ">
             Bravorental is a web-based car rental platform I developed to simplify the process of renting vehicles throughout Bali. Built with PHP and styled using the Bootstrap framework, the website allows users to explore a range of
             cars, check real-time availability, and place bookings online. The system also includes a dedicated admin dashboard to manage car listings, monitor rental activity, and streamline overall operations. Bravorental aims to support
             both local and tourist transportation needs with a user-friendly and efficient digital solution.
@@ -117,7 +117,7 @@ export default function Home() {
       title: '2025',
       content: (
         <div>
-          <p className="mb-4 text-md font-normal text-white md:text-sm dark:text-neutral-200">
+          <p className="mb-4 text-2xs font-normal text-white md:text-sm dark:text-neutral-200">
             Salon Asih is a web-based application I developed using Laravel and styled with Bootstrap to facilitate online booking for salon services. Users can explore available treatments, choose their preferred schedule, and confirm
             their booking by making a down payment (DP) directly through the website. This system enhances user convenience while helping salon staff manage appointments efficiently and minimize no-shows. Built with a focus on reliability
             and ease of use, Salon Asih provides a modern digital solution tailored to the needs of both salon owners and clients.
@@ -167,7 +167,7 @@ export default function Home() {
       title: 'Certificate',
       content: (
         <div>
-          <p className="mb-4 text-xs font-normal text-white md:text-sm dark:text-neutral-200">
+          <p className="mb-4 text-2xs font-normal text-white md:text-sm dark:text-neutral-200">
             I&apos;m thrilled to have successfully completed the VOCASIA TECH ACADEMY: Full Stack Web Development program as part of Studi Independen Bersertifikat (MSIB) Batch 7, supported by Kampus Merdeka. From September to December
             2024, this journey has been filled with valuable learning experiences, challenges, and growth. I&apos;ve gained deeper knowledge in web development, problem-solving, and collaboration—skills that will drive me forward in my
             career. Huge thanks to my mentors, peers, and everyone who supported me along the way! Excited for the next steps and opportunities ahead. 🚀
@@ -265,7 +265,7 @@ export default function Home() {
                   delay={80}
                   animateBy="words"
                   direction="top"
-                  className="text-sm sm:text-md sm: ml-5 md:text-lg lg:text-xl text-white mt-4 text-center lg:text-left lg:ml-0"
+                  className="text-sm  sm:text-md sm: ml-5 text-right md:text-lg lg:text-xl text-white mt-4  lg:text-left lg:ml-0"
                 />
 
                 <div className="mt-6">
