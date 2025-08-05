@@ -185,7 +185,7 @@ export default function Home() {
 
             <div className="flex gap-4 self-start cursor-pointer">
               <a href="https://github.com/bagussadewa12" target="_blank" rel="noopener noreferrer">
-                <Image src="/assets/icons/icons-github.png" alt="GitHub Icon" width={50} height={50} className="object-contain" />
+                <Image src="/assets/icons/icons-github.png" alt="GitHub Icon" width={50} height={50} className="object-contain bg-white rounded-full" />
               </a>
               <a href="https://www.instagram.com/bagussadewaaa_/" target="_blank" rel="noopener noreferrer">
                 <Image src="/assets/icons/icons-instagram.png" alt="gmail Icon" width={50} height={50} className="object-contain" />
