@@ -1,4 +1,3 @@
-// import Lanyard from './components/Lanyard/Lanyard';
 import RotatingText from './components/RotatingText/RotatingText';
 import SplitText from './components/SplitText/SplitText';
 import BlurText from './components/BlurText/BlurText';
@@ -7,8 +6,8 @@ import GradientText from './components/GradientText/GradientText';
 import { Timeline } from './components/Timeline/Timeline';
 import ScrollVelocity from './components/ScrollVelocity/ScrollVelocity';
 import Image from 'next/image';
-// import ProfileCard from './components/Profile/profilecard';
 import Lanyard from './components/Lanyard/Lanyard';
+import Link from 'next/link';
 
 export default function Home() {
   const data = [
@@ -268,8 +267,8 @@ export default function Home() {
                   className="text-sm  sm:text-md sm: ml-5 text-right md:text-lg lg:text-xl text-white mt-4  lg:text-left lg:ml-0"
                 />
 
-                <div className="mt-6">
-                  <a href="https://wa.me/6281338057046?text=Halo,%20saya%20tertarik%20dengan%20booking%20lapangan" target="_blank" rel="noopener noreferrer">
+                <div className="mt-6 flex gap-2">
+                  <a href="https://wa.me/6281338057046?text=Halo,%20saya%20tertarik%20dengan%20Layanan%20Anda" target="_blank" rel="noopener noreferrer">
                     <GradientText
                       colors={['#183CF2', '#2477DC', '#244267', '#4079ff', '#40ffaa']}
                       animationSpeed={3}
@@ -279,6 +278,16 @@ export default function Home() {
                       Contact Us
                     </GradientText>
                   </a>
+                  <Link href="/blog" className="ml-4">
+                    <GradientText
+                      colors={['#183CF2', '#2477DC', '#244267', '#4079ff', '#40ffaa']}
+                      animationSpeed={3}
+                      showBorder={false}
+                      className="text-sm md:text-base lg:text-lg text-shadow-md rounded-lg border px-4 md:px-6 py-2 md:py-3 border-[#27A2D3]"
+                    >
+                      Blog
+                    </GradientText>
+                  </Link>
                 </div>
               </div>
             </div>
