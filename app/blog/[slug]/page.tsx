@@ -1,6 +1,5 @@
 // app/blog/[slug]/page.tsx
-
-import { notFound } from 'next/navigation';
+// import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
 interface Post {
@@ -15,7 +14,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   try {
     const res = await fetch(`http://127.0.0.1:8000/api/posts/${encodeURIComponent(params.slug)}`, { next: { revalidate: 0 } });
 
-    if (!res.ok) throw new Error('Not found');
+    if (!res.ok) {
+      console.error(`Fetch failed: ${res.status} ${res.statusText}`);
+      throw new Error('Post not found');
+    }
 
     const post: Post = await res.json();
 
@@ -37,12 +39,20 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 day: 'numeric',
               })}
             </p>
-            <div className="prose prose-invert max-w-none text-gray-200 leading-relaxed">{post.content}</div>
+            <div className="prose prose-invert max-w-none text-gray-200 leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content }} />
           </div>
         </article>
       </div>
     );
   } catch (error) {
-    return notFound();
+    console.error('Error loading post:', error);
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-4">Terjadi kesalahan</h1>
+          <p className="text-gray-400">Post tidak ditemukan atau server sedang bermasalah.</p>
+        </div>
+      </div>
+    );
   }
 }
