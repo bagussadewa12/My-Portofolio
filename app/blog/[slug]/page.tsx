@@ -1,5 +1,4 @@
 // app/blog/[slug]/page.tsx
-// import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
 interface Post {
@@ -10,9 +9,20 @@ interface Post {
   created_at: string;
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function Page({ params }: PageProps) {
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+
   try {
-    const res = await fetch(`http://127.0.0.1:8000/api/posts/${encodeURIComponent(params.slug)}`, { next: { revalidate: 0 } });
+    const res = await fetch(
+      `${apiBase}/api/posts/${encodeURIComponent(params.slug)}`,
+      { cache: 'no-store' } // biar selalu ambil fresh data
+    );
 
     if (!res.ok) {
       console.error(`Fetch failed: ${res.status} ${res.statusText}`);
