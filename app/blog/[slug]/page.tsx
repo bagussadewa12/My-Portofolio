@@ -10,39 +10,29 @@ interface Post {
   created_at: string;
 }
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  // Karena params adalah Promise, kita harus await
+  const { slug } = await params;
 
-export default async function Page({ params }: PageProps) {
   try {
-    const res = await fetch(`http://127.0.0.1:8000/api/posts/${params.slug}`, {
-      cache: 'no-store', // biar selalu ambil data terbaru
+    const res = await fetch(`http://127.0.0.1:8000/api/posts/${slug}`, {
+      cache: 'no-store', // supaya selalu ambil data terbaru
     });
 
     if (!res.ok) {
-      notFound();
+      return notFound();
     }
 
     const post: Post = await res.json();
 
     return (
       <div className="max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        <Image
-          src={post.thumbnail}
-          alt={post.title}
-          width={800}
-          height={450}
-          className="rounded-lg object-contain" // object-contain supaya foto tidak terpotong
-        />
-        <div className="prose mt-6" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <Image src={post.thumbnail} alt={post.title} width={800} height={450} className="rounded-lg object-contain" />
+        <div className="prose mt-6 text-white" dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     );
   } catch (error) {
     console.error(error);
-    notFound();
+    return notFound();
   }
 }
