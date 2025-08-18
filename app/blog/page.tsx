@@ -5,10 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface Post {
-  title: string;
   slug: string;
+  title: string;
   content: string;
-  thumbnail: string;
+  author: string;
+  thumbnail: string | null;
   created_at: string;
 }
 
@@ -63,17 +64,19 @@ export default function Page() {
           <h2 className="text-2xl font-bold">Bagus Sadewa</h2>
           <p className="text-gray-400 text-sm">Frontend Developer</p>
         </div>
+
         <div className="mt-8 space-y-3">
           <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Contact</h3>
           <div className="flex items-center text-gray-300 text-sm">
             <Image src="/assets/icons/icons-gmail.png" alt="Email Icon" width={25} height={25} className="inline-block mr-2 cursor-pointer" />
             <span>komangbagussadewanetra@gmail.com</span>
           </div>
-          <a href="https://github.com/bagussadewa12">
-            <Image src="/assets/icons/icons-github.png" alt="Phone Icon" width={25} height={25} className="inline-block mr-2 bg-white rounded-full" />
+          <a href="https://github.com/bagussadewa12" className="flex items-center text-gray-300 text-sm mt-2">
+            <Image src="/assets/icons/icons-github.png" alt="GitHub Icon" width={25} height={25} className="inline-block mr-2 bg-white rounded-full" />
             <span>Bagussadewa12</span>
           </a>
         </div>
+
         <div className="mt-8 space-y-3">
           <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">Social Media</h3>
           <a href="https://www.instagram.com/bagussadewaaa_/" className="flex items-center text-gray-300 text-sm">
@@ -96,12 +99,18 @@ export default function Page() {
             {posts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-800 overflow-hidden flex flex-col">
                 <div className="relative w-full h-48 overflow-hidden">
-                  <Image src={post.thumbnail} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                  {post.thumbnail ? (
+                    <Image src={post.thumbnail} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                  ) : (
+                    <div className="w-full h-full bg-gray-800 flex items-center justify-center text-gray-500">No Image</div>
+                  )}
                 </div>
+
                 <div className="p-5 flex flex-col flex-1">
                   <h2 className="text-lg font-semibold mb-2 group-hover:text-indigo-400 transition-colors">{post.title}</h2>
                   <p className="text-gray-400 text-sm flex-1 line-clamp-3">{post.content}</p>
-                  <p className="text-xs text-gray-500 mt-4">
+                  <p className="text-xs text-gray-500 mt-2">By {post.author}</p>
+                  <p className="text-xs text-gray-500 mt-auto">
                     {new Date(post.created_at).toLocaleDateString('id-ID', {
                       year: 'numeric',
                       month: 'long',
