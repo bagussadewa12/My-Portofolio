@@ -19,7 +19,7 @@ export default function Page() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/posts')
+    fetch('http://127.0.0.1:8000/api/posts')
       .then((res) => {
         if (!res.ok) throw new Error('Gagal fetch data');
         return res.json();
